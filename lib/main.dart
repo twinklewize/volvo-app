@@ -48,5 +48,6 @@ class MyApp extends StatelessWidget {
 class VolvoColors {
   static const Color backgroundColor = Color.fromRGBO(247, 249, 250, 1);
   static const Color firstColor = Color.fromRGBO(22, 40, 112, 1);
-  static const Color secondColor = Color.fromRGBO(188, 197, 204, 1);
+  static const Color secondColor = Color.fromRGBO(140, 142, 146, 1);
+  static const Color thirdColor = Color.fromRGBO(188, 197, 204, 1);
 }

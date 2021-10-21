@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:volvo_app/home/widgets/tabbar.dart';
+import 'package:volvo_app/widgets/tabbar.dart';
+import 'package:volvo_app/main.dart';
 import 'home_view_model.dart';
 import '../chat/chat_view.dart';
 import '../map/map_view.dart';
@@ -16,7 +17,7 @@ class HomeView extends StatelessWidget {
     page = Provider.of<HomeViewModel>(context).selectedPage;
     return Scaffold(
       bottomNavigationBar: Tabbar(page),
-      backgroundColor: Colors.white,
+      backgroundColor: VolvoColors.backgroundColor,
       body: (page == "car_profile")
           ? CarProfileView()
           : (page == "map")
