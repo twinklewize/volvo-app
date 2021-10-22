@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:volvo_app/main.dart';
 
 class MapMarker {
   MapMarker({
@@ -49,6 +48,8 @@ class MapViewModel with ChangeNotifier {
 
   TextEditingController searchController = TextEditingController();
 
+  var bottomSheetController;
+
   final mapMarkers = [
     MapMarker(
       title: 'VOLVO CAR ТУЛЬСКАЯ',
@@ -74,7 +75,7 @@ class MapViewModel with ChangeNotifier {
       links: [],
       isPartnerService: true,
       rating: 4.9,
-      howManyReviews: 990,
+      howManyReviews: 51,
     ),
   ];
 }

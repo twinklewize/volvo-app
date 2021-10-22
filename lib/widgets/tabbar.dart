@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:volvo_app/home/home_view_model.dart';
 import 'package:volvo_app/main.dart';
+import 'package:volvo_app/map/map_view_model.dart';
 
 // ignore: use_key_in_widget_constructors, must_be_immutable
 class Tabbar extends StatelessWidget {
@@ -27,6 +28,9 @@ class Tabbar extends StatelessWidget {
                 onTap: () {
                   Provider.of<HomeViewModel>(context, listen: false)
                       .selectPage('volvo');
+                  Provider.of<MapViewModel>(context, listen: false)
+                      .bottomSheetController
+                      .close();
                 },
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width / 4,
@@ -35,7 +39,7 @@ class Tabbar extends StatelessWidget {
                     'assets/icons/volvo.svg',
                     color: currentPage == 'volvo'
                         ? VolvoColors.firstColor
-                        : VolvoColors.secondColor,
+                        : VolvoColors.thirdColor,
                     fit: BoxFit.none,
                   ),
                 ),
@@ -54,7 +58,7 @@ class Tabbar extends StatelessWidget {
                     'assets/icons/map.svg',
                     color: currentPage == 'map'
                         ? VolvoColors.firstColor
-                        : VolvoColors.secondColor,
+                        : VolvoColors.thirdColor,
                     fit: BoxFit.none,
                   ),
                 ),
@@ -65,6 +69,9 @@ class Tabbar extends StatelessWidget {
                 onTap: () {
                   Provider.of<HomeViewModel>(context, listen: false)
                       .selectPage('chat');
+                  Provider.of<MapViewModel>(context, listen: false)
+                      .bottomSheetController
+                      .close();
                 },
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width / 4,
@@ -73,7 +80,7 @@ class Tabbar extends StatelessWidget {
                     'assets/icons/chat.svg',
                     color: currentPage == 'chat'
                         ? VolvoColors.firstColor
-                        : VolvoColors.secondColor,
+                        : VolvoColors.thirdColor,
                     fit: BoxFit.none,
                   ),
                 ),
@@ -84,6 +91,9 @@ class Tabbar extends StatelessWidget {
                 onTap: () {
                   Provider.of<HomeViewModel>(context, listen: false)
                       .selectPage('car_profile');
+                  Provider.of<MapViewModel>(context, listen: false)
+                      .bottomSheetController
+                      .close();
                 },
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width / 4,
@@ -92,7 +102,7 @@ class Tabbar extends StatelessWidget {
                     'assets/icons/car_profile.svg',
                     color: currentPage == 'car_profile'
                         ? VolvoColors.firstColor
-                        : VolvoColors.secondColor,
+                        : VolvoColors.thirdColor,
                     fit: BoxFit.none,
                   ),
                 ),

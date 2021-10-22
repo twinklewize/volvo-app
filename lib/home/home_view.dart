@@ -17,7 +17,7 @@ class HomeView extends StatelessWidget {
     page = Provider.of<HomeViewModel>(context).selectedPage;
     return Scaffold(
       bottomNavigationBar: Tabbar(page),
-      backgroundColor: VolvoColors.backgroundColor,
+      //backgroundColor: VolvoColors.backgroundColor,
       body: (page == "car_profile")
           ? CarProfileView()
           : (page == "map")
