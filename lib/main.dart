@@ -17,6 +17,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      // status bar - верхняя панель, где время, заряд батарнеи итд
+      // system navigation bar - android "phisical" back. home and other buttons
+      systemNavigationBarIconBrightness:
+          Brightness.dark, // цвет кнопок system navigation bar
+      statusBarBrightness: Brightness
+          .light, // light если нужны черные значки на светлом фоне (IOS)
+      statusBarIconBrightness: Brightness
+          .dark, // light если нужны черные значки на светлом фоне (IOS) (андроид)
+    ));
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(
