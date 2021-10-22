@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:volvo_app/main.dart';
 
 // ignore: use_key_in_widget_constructors
 class CarProfileAppbar extends StatelessWidget {
