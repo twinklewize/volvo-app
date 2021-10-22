@@ -3,8 +3,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:volvo_app/car_profile/car_profile_view_model.dart';
 import 'package:volvo_app/main.dart';
+import 'package:volvo_app/user_profile/user_profile_view_model.dart';
 import 'package:volvo_app/widgets/appbar.dart';
 import 'package:volvo_app/widgets/car_picture.dart';
 import 'package:volvo_app/widgets/last_service_container_with_button.dart';
@@ -14,7 +14,7 @@ import 'package:volvo_app/widgets/white_fat_container.dart';
 class CarProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var car = Provider.of<CarProfileViewModel>(context).cars[0];
+    var car = Provider.of<UserProfileViewModel>(context).cars[0];
     return SingleChildScrollView(
       child: Column(
         children: [

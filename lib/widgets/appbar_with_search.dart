@@ -3,7 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 import 'package:volvo_app/main.dart';
+import 'package:volvo_app/user_profile/user_profile_view.dart';
+import 'package:volvo_app/user_profile/user_profile_view_model.dart';
 
 // ignore: non_constant_identifier_names
 Widget UniversalTextField({
@@ -153,14 +156,25 @@ class AppbarWithSearch extends StatelessWidget {
             SizedBox(width: 16),
 
             // avatar
-            Container(
-              width: 42.0,
-              height: 42.0,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: NetworkImage('https://clck.ru/YMFMM'),
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (BuildContext context) => UserProfileView(),
+                  ),
+                );
+              },
+              child: Container(
+                width: 42.0,
+                height: 42.0,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: NetworkImage(
+                      Provider.of<UserProfileViewModel>(context).user.avatarURI,
+                    ),
+                  ),
                 ),
               ),
             ),

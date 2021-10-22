@@ -1,0 +1,19 @@
+<svg width="339" height="207" viewBox="0 0 339 207" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter id="filter0_b_316:2868" x="-80" y="-80" width="499" height="367" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feGaussianBlur in="BackgroundImage" stdDeviation="40"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_316:2868"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_316:2868" result="shape"/>
+</filter>
+<linearGradient id="paint0_linear_316:2868" x1="-48.2866" y1="-22.3784" x2="402.938" y2="190.366" gradientUnits="userSpaceOnUse">
+<stop offset="0.148654" stop-color="#D67C4B"/>
+<stop offset="0.81536" stop-color="#DA5A35"/>
+</linearGradient>
+</defs>
+<rect width="337" height="207" rx="20" fill="url(#paint0_linear_316:2868)"/>
+<g filter="url(#filter0_b_316:2868)">
+<rect width="339" height="207" rx="20" fill="white" fill-opacity="0.03"/>
+</g>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8.69106 3.50203C3.44229 7.10683 0 13.1514 0 20V187C0 198.046 8.9543 207 20 207H319C326.68 207 333.349 202.671 336.7 196.32C339.505 137.154 295.628 49.8233 45.2485 0H20C16.5083 0 13.2255 0.894799 10.3686 2.4676L8.69106 3.50203Z" fill="white" fill-opacity="0.04"/>
+</svg>

@@ -6,6 +6,7 @@ import 'package:volvo_app/chat/chat_view_model.dart';
 import 'package:volvo_app/home/home_view.dart';
 import 'package:volvo_app/home/home_view_model.dart';
 import 'package:volvo_app/map/map_view_model.dart';
+import 'package:volvo_app/user_profile/user_profile_view_model.dart';
 import 'package:volvo_app/volvo/volvo_view_model.dart';
 
 void main() {
@@ -43,6 +44,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider.value(
           value: CarProfileViewModel(),
+        ),
+        ChangeNotifierProvider.value(
+          value: UserProfileViewModel(),
         ),
       ],
       child: MaterialApp(
