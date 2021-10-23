@@ -496,9 +496,9 @@ class PrivelegeClubCardView extends StatelessWidget {
                                 Positioned(
                                   bottom: 32,
                                   left: MediaQuery.of(context).size.width / 2 -
-                                      140,
+                                      150,
                                   right: MediaQuery.of(context).size.width / 2 -
-                                      140,
+                                      150,
                                   child: Text(
                                     viewModel.card.cardNumber.toUpperCase(),
                                     style: const TextStyle(

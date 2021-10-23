@@ -3,9 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:volvo_app/car_profile/car_profile_view_model.dart';
 import 'package:volvo_app/chat/chat_view_model.dart';
-import 'package:volvo_app/home/home_view.dart';
 import 'package:volvo_app/home/home_view_model.dart';
 import 'package:volvo_app/map/map_view_model.dart';
+import 'package:volvo_app/onboarding/onboarding_view.dart';
 import 'package:volvo_app/user_profile/user_profile_view_model.dart';
 import 'package:volvo_app/volvo/volvo_view_model.dart';
 
@@ -56,7 +56,8 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        home: HomeView(),
+        home: OnBoardingPage(),
+        //HomeView()
       ),
     );
   }
