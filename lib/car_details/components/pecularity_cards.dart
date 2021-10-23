@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:volvo_app/car_details/car_details_view_model.dart';
 
 import 'constants.dart';
 
 // ignore: use_key_in_widget_constructors
 class Pecularities extends StatelessWidget {
+  var pecularityData;
+
   @override
   Widget build(BuildContext context) {
+    final carDetailsData = Provider.of<CarDetailsViewModel>(
+      context,
+      listen: false,
+    );
+    pecularityData = carDetailsData.pecularities;
     return Column(
       children: [
         SingleChildScrollView(
@@ -13,20 +22,20 @@ class Pecularities extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 18.0),
             child: Row(
-              children: const [
+              children: [
                 PecularitiesCard(
-                  title: '420 км',
-                  text: 'Запас хода на электрической тяге',
+                  title: pecularityData[0]['title'],
+                  text: pecularityData[0]['text'],
                 ),
                 SizedBox(width: 8),
                 PecularitiesCard(
-                  title: '4.7 секунд',
-                  text: 'Разгон с 0 до 100 км/час',
+                  title: pecularityData[1]['title'],
+                  text: pecularityData[1]['text'],
                 ),
                 SizedBox(width: 8),
                 PecularitiesCard(
-                  title: '100%',
-                  text: 'Без использования натуральной кожи',
+                  title: pecularityData[2]['title'],
+                  text: pecularityData[2]['text'],
                 ),
               ],
             ),

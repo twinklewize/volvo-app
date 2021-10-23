@@ -1,7 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:volvo_app/car_details/car_details_view.dart';
+import 'package:volvo_app/notifications/notification_service.dart';
 
-class ImageCards extends StatelessWidget {
+class ImageCards extends StatefulWidget {
   const ImageCards({Key? key}) : super(key: key);
+
+  @override
+  State<ImageCards> createState() => _ImageCardsState();
+}
+
+class _ImageCardsState extends State<ImageCards> {
+  @override
+  void initState() {
+    super.initState();
+
+    NotificationService.init();
+    listenNotifications();
+  }
+
+  void listenNotifications() =>
+      NotificationService.onNotifications.stream.listen(onClickedNotification);
+
+  void onClickedNotification(String? payload) => Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => CarDetailsView(),
+        ),
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -13,12 +37,23 @@ class ImageCards extends StatelessWidget {
           children: [
             ImageCard(
               image: 'assets/images/image_card_1.png',
-              press: () {},
+              press: () {
+                NotificationService.showNotification(
+                  title: 'Вы недавно посещали наш сервисный центр',
+                  body: 'Оцените обслуживание',
+                );
+              },
             ),
             const SizedBox(width: 8),
             ImageCard(
               image: 'assets/images/image_card_2.png',
-              press: () {},
+              press: () {
+                NotificationService.showSheduledNotification(
+                  title: 'Вы недавно посещали наш сервисный центр',
+                  body: 'Оцените обслуживание',
+                  scheduledDate: DateTime.now().add(Duration(seconds: 5)),
+                );
+              },
             ),
             const SizedBox(width: 8),
             ImageCard(
@@ -46,7 +81,7 @@ class ImageCard extends StatelessWidget {
   // ignore: use_key_in_widget_constructors
 
   final String image;
-  final Function press;
+  final Function() press;
 
   // ignore: use_key_in_widget_constructors
   const ImageCard({
@@ -57,7 +92,7 @@ class ImageCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: press(),
+      onTap: press,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16),
         child: Image.asset(image),

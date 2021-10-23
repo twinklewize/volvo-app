@@ -53,10 +53,10 @@ class CarCard extends StatelessWidget {
                   Text(title, style: TextStyles.cardTitleText),
                   const SizedBox(height: 4),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(information1, style: TextStyles.informationText),
-                      const Text('·', style: TextStyles.informationText),
+                      const Text('   ·   ', style: TextStyles.informationText),
                       Text(information2, style: TextStyles.informationText),
                     ],
                   ),
@@ -70,7 +70,11 @@ class CarCard extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 18),
+              padding: const EdgeInsets.only(
+                right: 18,
+                left: 18,
+                bottom: 24,
+              ),
               child: GestureDetector(
                 onTap: press,
                 child: Container(
@@ -89,7 +93,6 @@ class CarCard extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 24),
           ],
         ),
       ),
