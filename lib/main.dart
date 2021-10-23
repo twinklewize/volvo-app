@@ -18,16 +18,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      // status bar - верхняя панель, где время, заряд батарнеи итд
-      // system navigation bar - android "phisical" back. home and other buttons
-      systemNavigationBarIconBrightness:
-          Brightness.dark, // цвет кнопок system navigation bar
-      statusBarBrightness: Brightness
-          .light, // light если нужны черные значки на светлом фоне (IOS)
-      statusBarIconBrightness: Brightness
-          .dark, // light если нужны черные значки на светлом фоне (IOS) (андроид)
-    ));
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        // status bar - верхняя панель, где время, заряд батарнеи итд
+        // system navigation bar - android "phisical" back. home and other buttons
+        systemNavigationBarIconBrightness:
+            Brightness.dark, // цвет кнопок system navigation bar
+        statusBarBrightness: Brightness
+            .light, // light если нужны черные значки на светлом фоне (IOS)
+        statusBarIconBrightness: Brightness
+            .dark, // light если нужны черные значки на светлом фоне (IOS) (андроид)
+        systemNavigationBarColor: Colors.white, // system navigation bar color
+        statusBarColor: VolvoColors.backgroundColor,
+      ),
+    );
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(
@@ -52,7 +56,6 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        theme: ThemeData(),
         home: HomeView(),
       ),
     );

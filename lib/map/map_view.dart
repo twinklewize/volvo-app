@@ -3,8 +3,10 @@ import 'package:flutter_map/plugin_api.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
+import 'package:volvo_app/drawer/drawer.dart';
 import 'package:volvo_app/main.dart';
 import 'package:volvo_app/map/map_view_model.dart';
+import 'package:volvo_app/service_apply/service_apply_view.dart';
 import 'package:volvo_app/widgets/appbar_with_search.dart';
 import 'package:volvo_app/widgets/white_slim_container.dart';
 
@@ -174,7 +176,12 @@ class MapView extends StatelessWidget {
                           // Записаться
                           GestureDetector(
                             onTap: () {
-                              print("Записаться");
+                              Navigator.of(context).push(
+                                MaterialPageRoute<void>(
+                                  builder: (BuildContext context) =>
+                                      ServiceApplyView(service: service),
+                                ),
+                              );
                             },
                             child: SvgPicture.asset(
                                 'assets/buttons/zapisatsya_dark_button.svg'),
@@ -253,6 +260,7 @@ class MapView extends StatelessWidget {
     var mapViewModel = Provider.of<MapViewModel>(context);
     final _markers = _buildMarkers(mapViewModel.mapMarkers, context);
     return Scaffold(
+      drawer: MainDrawer(),
       body: Stack(
         children: [
           FlutterMap(

@@ -9,14 +9,14 @@ enum CardLevels {
   diamond,
 }
 
-class User {
+class UserData {
   String name;
   String surname;
   String avatarURI;
   DateTime birthDate;
   String sex;
 
-  User({
+  UserData({
     required this.name,
     required this.surname,
     required this.birthDate,
@@ -27,14 +27,16 @@ class User {
 
 class LoyaltyCard {
   String cardNumber;
-  User user;
+  UserData userData;
   CardLevels cardLevel;
-  int howManyPointsOnCard;
+  double howManyPointsOnCard;
+  double howManyBonusesOnCard;
 
   LoyaltyCard({
     required this.cardNumber,
-    required this.user,
+    required this.userData,
     required this.howManyPointsOnCard,
+    required this.howManyBonusesOnCard,
     required this.cardLevel,
   });
 
@@ -45,6 +47,7 @@ class LoyaltyCard {
       // ignore: curly_braces_in_flow_control_structures
       return CardLevels.silver;
     if (howManyPointsOnCard >= 250000 && howManyPointsOnCard < 1250000)
+      // ignore: curly_braces_in_flow_control_structures
       return CardLevels.gold;
     if (howManyPointsOnCard >= 1250000) return CardLevels.diamond;
     return CardLevels.withoutCard;
@@ -57,7 +60,7 @@ class LoyaltyCard {
 }
 
 class UserProfileViewModel with ChangeNotifier {
-  User user = User(
+  UserData userData = UserData(
     name: 'Егор',
     surname: 'Чуриков',
     birthDate: DateTime(2001, 12, 1),
@@ -67,15 +70,16 @@ class UserProfileViewModel with ChangeNotifier {
 
   LoyaltyCard card = LoyaltyCard(
     cardNumber: 'XC00309935877',
-    user: User(
+    userData: UserData(
       name: 'Егор',
       surname: 'Чуриков',
       birthDate: DateTime(2001, 12, 1),
       sex: 'Male',
       avatarURI: 'https://clck.ru/YMFMM',
     ),
-    howManyPointsOnCard: 1250000,
-    cardLevel: CardLevels.diamond,
+    howManyPointsOnCard: 180000,
+    howManyBonusesOnCard: 12000,
+    cardLevel: CardLevels.silver,
   );
 
   List<CarProfile> cars = [

@@ -131,10 +131,15 @@ class AppbarWithSearch extends StatelessWidget {
             SizedBox(width: 8),
 
             // burger
-            SvgPicture.asset(
-              'assets/icons/drawer.svg',
-              color: Colors.black,
-              fit: BoxFit.none,
+            GestureDetector(
+              onTap: () {
+                Scaffold.of(context).openDrawer();
+              },
+              child: SvgPicture.asset(
+                'assets/icons/drawer.svg',
+                color: Colors.black,
+                fit: BoxFit.none,
+              ),
             ),
 
             SizedBox(width: 18),
@@ -172,7 +177,9 @@ class AppbarWithSearch extends StatelessWidget {
                   image: DecorationImage(
                     fit: BoxFit.cover,
                     image: NetworkImage(
-                      Provider.of<UserProfileViewModel>(context).user.avatarURI,
+                      Provider.of<UserProfileViewModel>(context)
+                          .userData
+                          .avatarURI,
                     ),
                   ),
                 ),

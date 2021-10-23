@@ -48,6 +48,7 @@ class MapViewModel with ChangeNotifier {
 
   TextEditingController searchController = TextEditingController();
 
+  // ignore: prefer_typing_uninitialized_variables
   var bottomSheetController;
 
   final mapMarkers = [

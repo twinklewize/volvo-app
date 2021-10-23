@@ -19,10 +19,15 @@ class CarProfileAppbar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             // burger
-            SvgPicture.asset(
-              'assets/icons/drawer.svg',
-              color: Colors.black,
-              fit: BoxFit.none,
+            GestureDetector(
+              onTap: () {
+                Scaffold.of(context).openDrawer();
+              },
+              child: SvgPicture.asset(
+                'assets/icons/drawer.svg',
+                color: Colors.black,
+                fit: BoxFit.none,
+              ),
             ),
 
             // avatar
@@ -42,7 +47,9 @@ class CarProfileAppbar extends StatelessWidget {
                   image: DecorationImage(
                     fit: BoxFit.cover,
                     image: NetworkImage(
-                      Provider.of<UserProfileViewModel>(context).user.avatarURI,
+                      Provider.of<UserProfileViewModel>(context)
+                          .userData
+                          .avatarURI,
                     ),
                   ),
                 ),
