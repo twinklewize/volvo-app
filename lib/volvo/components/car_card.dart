@@ -28,7 +28,6 @@ class CarCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 18.0),
       child: Container(
-        height: 400,
         width: size.width - 36,
         decoration: BoxDecoration(
           color: Colors.white,
@@ -78,7 +77,6 @@ class CarCard extends StatelessWidget {
               child: GestureDetector(
                 onTap: press,
                 child: Container(
-                  width: 301,
                   height: 48,
                   decoration: BoxDecoration(
                     color: const Color(0xFF162870),
