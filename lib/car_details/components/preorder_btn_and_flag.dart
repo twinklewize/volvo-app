@@ -53,6 +53,7 @@ class PreOrderBtnAndFlag extends StatelessWidget {
               ),
               child: SvgPicture.asset(
                 'assets/icons/flag.svg',
+                color: Colors.white,
                 fit: BoxFit.none,
               ),
             ),
