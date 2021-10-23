@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:volvo_app/car_details/car_details_view_model.dart';
 import 'package:volvo_app/car_profile/car_profile_view_model.dart';
 import 'package:volvo_app/chat/chat_view_model.dart';
 import 'package:volvo_app/home/home_view.dart';
 import 'package:volvo_app/home/home_view_model.dart';
 import 'package:volvo_app/map/map_view_model.dart';
+import 'package:volvo_app/test_drive_form/test_drive_form_view_model.dart';
 import 'package:volvo_app/volvo/volvo_view_model.dart';
 
 void main() {
@@ -43,6 +45,12 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider.value(
           value: CarProfileViewModel(),
+        ),
+        ChangeNotifierProvider.value(
+          value: TestDriveViewModel(),
+        ),
+        ChangeNotifierProvider.value(
+          value: CarDetailsViewModel(),
         ),
       ],
       child: MaterialApp(

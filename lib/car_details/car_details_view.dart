@@ -1,6 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors
-
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:volvo_app/car_details/car_details_view_model.dart';
 import 'package:volvo_app/car_details/components/car_details_appbar.dart';
 import 'package:volvo_app/car_details/components/color_dots.dart';
 import 'package:volvo_app/car_details/components/pecularity_cards.dart';
@@ -12,6 +13,12 @@ import 'components/constants.dart';
 class CarDetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final carDetailsData = Provider.of<CarDetailsViewModel>(
+      context,
+      listen: true,
+    );
+    var colorImages = carDetailsData.colorImages;
+
     return Scaffold(
       body: Stack(
         children: [
@@ -34,7 +41,7 @@ class CarDetailsView extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 18),
                   child: CarPicture(
-                      imageURI: 'assets/images/car_detail_image.png'),
+                      imageURI: colorImages[carDetailsData.colorIndex]),
                 ),
                 const SizedBox(height: 24),
 
@@ -48,17 +55,14 @@ class CarDetailsView extends StatelessWidget {
                 const SizedBox(height: 32),
 
                 //Текст
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 18.0),
-                  child: Text('Создан с уважением и заботой',
-                      style: TextStyles.title),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                  child: Text(carDetailsData.title, style: TextStyles.title),
                 ),
                 const SizedBox(height: 16),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 18.0),
-                  child: Text(
-                      'C40 Recharge — это первый автомобиль Volvo, в котором полностью отсутствует натуральная кожа в салоне, включая руль, рычаг переключения передач и обивку. Мы считаем, что это новая, более уважительная к окружающей среде интерпретация роскоши и использования материалов в дизайне салона.',
-                      style: TextStyles.text),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                  child: Text(carDetailsData.text, style: TextStyles.text),
                 ),
                 const SizedBox(height: 24 + 34 + 48),
               ],
@@ -84,7 +88,7 @@ class CarDetailsView extends StatelessWidget {
           ),
 
           //кнопки
-          PreOrderBtnAndFlag(),
+          PreOrderBtnAndFlag(carModel: carDetailsData.carModel),
         ],
       ),
     );

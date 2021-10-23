@@ -70,7 +70,11 @@ class CarCard extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 18),
+              padding: const EdgeInsets.only(
+                right: 18,
+                left: 18,
+                bottom: 24,
+              ),
               child: GestureDetector(
                 onTap: press,
                 child: Container(
@@ -89,7 +93,6 @@ class CarCard extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 24),
           ],
         ),
       ),
