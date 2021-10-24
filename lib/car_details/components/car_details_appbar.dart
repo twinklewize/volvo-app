@@ -24,22 +24,16 @@ class CarDetailsAppbar extends StatelessWidget {
                 fit: BoxFit.none,
               ),
             ),
-
             SvgPicture.asset(
               'assets/icons/volvo_logo.svg',
               color: Colors.black,
               fit: BoxFit.none,
             ),
-
             // more
-            SizedBox(
-              width: 50,
-              height: 50,
-              child: SvgPicture.asset(
-                'assets/icons/more.svg',
-                color: Colors.black,
-                fit: BoxFit.none,
-              ),
+            SvgPicture.asset(
+              'assets/icons/more.svg',
+              color: Colors.black,
+              fit: BoxFit.none,
             ),
           ],
         ),

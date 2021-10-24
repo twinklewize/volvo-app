@@ -28,49 +28,52 @@ class MessageBubble extends StatelessWidget {
                   backgroundImage: NetworkImage(userImage),
                 )
               : const SizedBox(),
-          Bubble(
-            margin: BubbleEdges.only(
-              top: 24,
-              right: 8,
-              left: 8,
-            ),
-            padding: BubbleEdges.only(
-              right: 16,
-              left: 16,
-              bottom: 16,
-              top: isMe ? 16 : 12,
-            ),
-            radius: Radius.circular(12),
-            nipRadius: 2,
-            alignment: Alignment.bottomRight,
-            nip: isMe ? BubbleNip.rightBottom : BubbleNip.leftBottom,
-            color: isMe ? const Color(0xFF162870) : Colors.white,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                isMe
-                    ? SizedBox()
-                    : Padding(
-                        padding: const EdgeInsets.only(bottom: 8.0),
-                        child: Text(
-                          userName,
-                          style: TextStyle(
-                            color: Color(0xFF162870),
-                            fontFamily: 'VolvoNovum',
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
+          SizedBox(
+            width: 2 * MediaQuery.of(context).size.width / 3,
+            child: Bubble(
+              margin: BubbleEdges.only(
+                top: 24,
+                right: 8,
+                left: 8,
+              ),
+              padding: BubbleEdges.only(
+                right: 16,
+                left: 16,
+                bottom: 16,
+                top: isMe ? 16 : 12,
+              ),
+              radius: Radius.circular(12),
+              nipRadius: 2,
+              alignment: Alignment.bottomRight,
+              nip: isMe ? BubbleNip.rightBottom : BubbleNip.leftBottom,
+              color: isMe ? const Color(0xFF162870) : Colors.white,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  isMe
+                      ? SizedBox()
+                      : Padding(
+                          padding: const EdgeInsets.only(bottom: 8.0),
+                          child: Text(
+                            userName,
+                            style: TextStyle(
+                              color: Color(0xFF162870),
+                              fontFamily: 'VolvoNovum',
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
-                      ),
-                Text(
-                  message,
-                  style: TextStyle(
-                    color: isMe ? Colors.white : Colors.black,
-                    fontFamily: 'VolvoNovum',
-                    fontSize: 16,
+                  Text(
+                    message,
+                    style: TextStyle(
+                      color: isMe ? Colors.white : Colors.black,
+                      fontFamily: 'VolvoNovum',
+                      fontSize: 16,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           isMe

@@ -11,33 +11,64 @@ import 'package:volvo_app/widgets/appbar_with_search.dart';
 import 'package:volvo_app/widgets/white_slim_container.dart';
 
 // ignore: use_key_in_widget_constructors
-class MapView extends StatelessWidget {
+class MapView extends StatefulWidget {
+  @override
+  State<MapView> createState() => _MapViewState();
+}
+
+class _MapViewState extends State<MapView> {
+  bool showOnlyDealers = false;
+
   List<Marker> _buildMarkers(List<MapMarker> mapMarkers, BuildContext context) {
     List<Marker> _markerList = [];
     for (var i = 0; i < mapMarkers.length; i++) {
       final _mapItem = mapMarkers[i];
-      _markerList.add(
-        Marker(
-          height: _mapItem.isPartnerService ? 40 : 48,
-          width: _mapItem.isPartnerService ? 29 : 35,
-          point: _mapItem.location,
-          builder: (_) {
-            return GestureDetector(
-              onTap: () {
-                showServiceBottomSheet(context: context, service: _mapItem);
-              },
-              child: _mapItem.isPartnerService
-                  ? SvgPicture.asset('assets/icons/partner_map_point.svg')
-                  : SvgPicture.asset('assets/icons/volvo_map_point.svg'),
+      showOnlyDealers
+          ? _mapItem.title == 'VOLVO CAR ТУЛЬСКАЯ' ||
+                  _mapItem.title == 'VOLVO CAR ДУМСКАЯ'
+              ? _markerList.add(
+                  Marker(
+                    height: _mapItem.isPartnerService ? 40 : 48,
+                    width: _mapItem.isPartnerService ? 29 : 35,
+                    point: _mapItem.location,
+                    builder: (_) {
+                      return GestureDetector(
+                        onTap: () {
+                          showServiceBottomSheet(
+                              context: context, service: _mapItem);
+                        },
+                        child: _mapItem.isPartnerService
+                            ? SvgPicture.asset(
+                                'assets/icons/partner_map_point.svg')
+                            : SvgPicture.asset(
+                                'assets/icons/volvo_map_point.svg'),
+                      );
+                    },
+                  ),
+                )
+              : print('')
+          : _markerList.add(
+              Marker(
+                height: _mapItem.isPartnerService ? 40 : 48,
+                width: _mapItem.isPartnerService ? 29 : 35,
+                point: _mapItem.location,
+                builder: (_) {
+                  return GestureDetector(
+                    onTap: () {
+                      showServiceBottomSheet(
+                          context: context, service: _mapItem);
+                    },
+                    child: _mapItem.isPartnerService
+                        ? SvgPicture.asset('assets/icons/partner_map_point.svg')
+                        : SvgPicture.asset('assets/icons/volvo_map_point.svg'),
+                  );
+                },
+              ),
             );
-          },
-        ),
-      );
     }
     return _markerList;
   }
 
-  // при нажатии на точку на карте
   void showServiceBottomSheet({
     required BuildContext context,
     required MapMarker service,
@@ -267,7 +298,7 @@ class MapView extends StatelessWidget {
             options: MapOptions(
               minZoom: 3,
               maxZoom: 18,
-              zoom: 13,
+              zoom: 12,
               center: mapViewModel.myLocation,
             ),
             nonRotatedLayers: [
@@ -306,23 +337,25 @@ class MapView extends StatelessWidget {
                       // Дилеры
                       GestureDetector(
                         onTap: () {
-                          print("Дилеры");
+                          setState(() {
+                            showOnlyDealers = !showOnlyDealers;
+                          });
                         },
-                        child: const WhiteSlimContainer(
+                        child: WhiteSlimContainer(
                           svgIconPath: 'assets/icons/wheel.svg',
                           title: 'Дилеры',
+                          isSelected: showOnlyDealers,
                         ),
                       ),
                       const SizedBox(width: 8),
 
                       // Тест-драйв
                       GestureDetector(
-                        onTap: () {
-                          print("Тест-драйв");
-                        },
+                        onTap: () {},
                         child: const WhiteSlimContainer(
                           svgIconPath: 'assets/icons/flag.svg',
                           title: 'Тест-драйв',
+                          isSelected: false,
                         ),
                       ),
                       const SizedBox(width: 8),
@@ -335,6 +368,7 @@ class MapView extends StatelessWidget {
                         child: const WhiteSlimContainer(
                           svgIconPath: 'assets/icons/bed.svg',
                           title: 'Отели',
+                          isSelected: false,
                         ),
                       ),
                     ],

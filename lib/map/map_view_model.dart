@@ -44,7 +44,7 @@ class MapViewModel with ChangeNotifier {
   final MARKER_COLOR = Colors.red;
 
 // ignore: unused_field
-  final LatLng myLocation = LatLng(-12.0162176, -77.0296812);
+  final LatLng myLocation = LatLng(-12.0162176, -77.0496812);
 
   TextEditingController searchController = TextEditingController();
 
@@ -53,29 +53,68 @@ class MapViewModel with ChangeNotifier {
 
   final mapMarkers = [
     MapMarker(
+      title: 'VOLVO CAR ДУМСКАЯ',
+      address: 'Address Macdonald\'s 123',
+      description: 'Официальный диллер',
+      location: LatLng(-12.0630041, -77.0978237),
+      openHours: 8,
+      closeHours: 20,
+      phone: '89997776655',
+      links: [],
+      isPartnerService: false,
+      rating: 4.2,
+      howManyReviews: 58,
+    ),
+    MapMarker(
+      title: 'Karro',
+      address: 'Address Macdonald\'s 123',
+      description: 'Официальный партнер',
+      location: LatLng(-12.0130041, -77.0678237),
+      openHours: 8,
+      closeHours: 20,
+      phone: '89997776655',
+      links: [],
+      isPartnerService: true,
+      rating: 3.5,
+      howManyReviews: 0,
+    ),
+    MapMarker(
       title: 'VOLVO CAR ТУЛЬСКАЯ',
       address: 'Address Macdonald\'s 123',
       description: 'Официальный диллер',
-      location: LatLng(-12.0030041, -77.0278237),
+      location: LatLng(-12.02030041, -77.0278237),
       openHours: 8,
       closeHours: 20,
       phone: '89997776655',
       links: [],
       isPartnerService: false,
       rating: 4.5,
+      howManyReviews: 1,
+    ),
+    MapMarker(
+      title: 'H2O Profi',
+      address: 'Address Macdonald\'s 123',
+      description: 'Официальный партнер',
+      location: LatLng(-12.0630041, -77.0278237),
+      openHours: 8,
+      closeHours: 19,
+      phone: '89997776655',
+      links: [],
+      isPartnerService: true,
+      rating: 5,
       howManyReviews: 201,
     ),
     MapMarker(
-      title: 'WEST COAST CUSTOM REPAIR',
+      title: 'W & W',
       address: 'Corona, California, USA',
-      description: 'Партнерский сервис',
-      location: LatLng(-12.0180045, -77.0105112),
+      description: 'Партнерский партнер',
+      location: LatLng(-13.0180045, -77.0105112),
       openHours: 10,
       closeHours: 21,
       phone: '89917166151',
       links: [],
       isPartnerService: true,
-      rating: 4.9,
+      rating: 4,
       howManyReviews: 51,
     ),
   ];

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:volvo_app/home/home_view.dart';
 import 'package:volvo_app/main.dart';
 
 class AuthView extends StatelessWidget {
@@ -83,7 +84,7 @@ class AuthView extends StatelessWidget {
             },
             child: Container(
               height: 50,
-              width: MediaQuery.of(context).size.width - 72,
+              width: MediaQuery.of(context).size.width - 36,
               decoration: BoxDecoration(
                 color: VolvoColors.firstColor,
                 borderRadius: BorderRadius.circular(12),
@@ -103,19 +104,24 @@ class AuthView extends StatelessWidget {
           GestureDetector(
             onTap: () {
               //
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (context) => HomeView(),
+                ),
+              );
             },
             child: Container(
               height: 50,
-              width: MediaQuery.of(context).size.width - 72,
+              width: MediaQuery.of(context).size.width - 36,
               decoration: BoxDecoration(
-                color: VolvoColors.thirdColor,
+                color: Color(0xFFDDE7FF),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: const Center(
                 child: Text(
-                  'ВХОД',
+                  'Вход',
                   style: TextStyle(
-                    color: Colors.black54,
+                    color: VolvoColors.firstColor,
                   ),
                 ),
               ),
