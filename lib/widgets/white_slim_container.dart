@@ -1,23 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:volvo_app/main.dart';
 
 class WhiteSlimContainer extends StatelessWidget {
   // ignore: use_key_in_widget_constructors
   const WhiteSlimContainer({
     required this.svgIconPath,
     required this.title,
+    required this.isSelected,
   });
 
   final String svgIconPath;
   final String title;
+  final bool isSelected;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 42,
       width: 147,
-      decoration: const BoxDecoration(
-        color: Colors.white,
+      decoration: BoxDecoration(
+        color: isSelected ? Color(0xFFDDE7FF) : Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(12)),
         boxShadow: [
           BoxShadow(
@@ -32,14 +35,18 @@ class WhiteSlimContainer extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(svgIconPath),
+            SvgPicture.asset(
+              svgIconPath,
+              color: isSelected ? Colors.black : Color.fromRGBO(69, 82, 91, 1),
+            ),
             const SizedBox(width: 10),
             Text(
               title,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w500,
-                color: Color.fromRGBO(69, 82, 91, 1),
+                color:
+                    isSelected ? Colors.black : Color.fromRGBO(69, 82, 91, 1),
               ),
             ),
           ],

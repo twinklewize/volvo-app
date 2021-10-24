@@ -58,7 +58,7 @@ class PrivelegeClubCardView extends StatelessWidget {
                           child: Row(
                             children: [
                               Text(
-                                viewModel.card.howManyBonusesOnCard
+                                viewModel.card.howManyPointsOnCard
                                     .toStringAsFixed(0),
                                 style: TextStyle(
                                   color: Color.fromRGBO(242, 242, 242, 1),
@@ -130,7 +130,7 @@ class PrivelegeClubCardView extends StatelessWidget {
                               child: Row(
                                 children: [
                                   Text(
-                                    viewModel.card.howManyBonusesOnCard
+                                    viewModel.card.howManyPointsOnCard
                                         .toStringAsFixed(0),
                                     style: TextStyle(
                                       color: Color.fromRGBO(242, 242, 242, 1),
@@ -203,7 +203,7 @@ class PrivelegeClubCardView extends StatelessWidget {
                                   child: Row(
                                     children: [
                                       Text(
-                                        viewModel.card.howManyBonusesOnCard
+                                        viewModel.card.howManyPointsOnCard
                                             .toStringAsFixed(0),
                                         style: TextStyle(
                                           color:
@@ -280,7 +280,7 @@ class PrivelegeClubCardView extends StatelessWidget {
                                       child: Row(
                                         children: [
                                           Text(
-                                            viewModel.card.howManyBonusesOnCard
+                                            viewModel.card.howManyPointsOnCard
                                                 .toStringAsFixed(0),
                                             style: TextStyle(
                                               color: Color.fromRGBO(
@@ -356,7 +356,7 @@ class PrivelegeClubCardView extends StatelessWidget {
                                       child: Row(
                                         children: [
                                           Text(
-                                            viewModel.card.howManyBonusesOnCard
+                                            viewModel.card.howManyPointsOnCard
                                                 .toStringAsFixed(0),
                                             style: TextStyle(
                                               color: Color.fromRGBO(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:volvo_app/auth/auth_view.dart';
 import 'package:volvo_app/car_details/car_details_view_model.dart';
 import 'package:volvo_app/car_profile/car_profile_view_model.dart';
 import 'package:volvo_app/chat/chat_view_model.dart';
@@ -65,7 +66,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        home: HomeView(),
+        home: AuthView(),
         theme: ThemeData(
           primaryColor: VolvoColors.firstColor,
         ),
