@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:volvo_app/main.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:volvo_app/user_profile/components/card.dart';
 import 'package:volvo_app/user_profile/components/diagram.dart';
 import 'package:volvo_app/user_profile/user_profile_view_model.dart';
