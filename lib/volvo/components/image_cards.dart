@@ -1,31 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:volvo_app/car_details/car_details_view.dart';
+import 'package:volvo_app/feedback_form/feedback_form_view.dart';
 import 'package:volvo_app/notifications/notification_service.dart';
 
 class ImageCards extends StatefulWidget {
-  const ImageCards({Key? key}) : super(key: key);
-
   @override
   State<ImageCards> createState() => _ImageCardsState();
 }
 
 class _ImageCardsState extends State<ImageCards> {
+  late Function(String?) onClickedNotification;
   @override
   void initState() {
     super.initState();
-
+    onClickedNotification = (String? payload) => Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => FeedbackFormView(),
+          ),
+        );
     NotificationService.init();
     listenNotifications();
   }
 
+  @override
+  void dispose() {
+    onClickedNotification = (String? payload) {};
+
+    super.dispose();
+  }
+
   void listenNotifications() =>
       NotificationService.onNotifications.stream.listen(onClickedNotification);
-
-  void onClickedNotification(String? payload) => Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) => CarDetailsView(),
-        ),
-      );
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +56,7 @@ class _ImageCardsState extends State<ImageCards> {
                 NotificationService.showSheduledNotification(
                   title: 'Вы недавно посещали наш сервисный центр',
                   body: 'Оцените обслуживание',
-                  scheduledDate: DateTime.now().add(Duration(seconds: 5)),
+                  scheduledDate: DateTime.now().add(Duration(seconds: 12)),
                 );
               },
             ),

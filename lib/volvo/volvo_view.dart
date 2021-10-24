@@ -22,7 +22,7 @@ class VolvoView extends StatelessWidget {
             child: CarProfileAppbar(),
           ),
           const SizedBox(height: 24),
-          const ImageCards(),
+          ImageCards(),
           const SizedBox(height: 24),
           Search(),
           const SizedBox(height: 24),
