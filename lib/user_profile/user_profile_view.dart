@@ -287,9 +287,7 @@ class _UserProfileViewState extends State<UserProfileView>
                                   fontSize: 14,
                                 ),
                               ),
-                              onTap: () {
-                                print('show info about loyalty');
-                              },
+                              onTap: () async {},
                             ),
                             Expanded(child: const SizedBox()),
                           ],

@@ -496,9 +496,9 @@ class PrivelegeClubCardView extends StatelessWidget {
                                 Positioned(
                                   bottom: 32,
                                   left: MediaQuery.of(context).size.width / 2 -
-                                      150,
+                                      140,
                                   right: MediaQuery.of(context).size.width / 2 -
-                                      150,
+                                      140,
                                   child: Text(
                                     viewModel.card.cardNumber.toUpperCase(),
                                     style: const TextStyle(
@@ -512,7 +512,7 @@ class PrivelegeClubCardView extends StatelessWidget {
 
                                 // qr
                                 Positioned(
-                                  top: 36,
+                                  top: 28,
                                   left: MediaQuery.of(context).size.width / 2 -
                                       75,
                                   right: MediaQuery.of(context).size.width / 2 -

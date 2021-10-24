@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:volvo_app/car_profile/car_profile_view_model.dart';
@@ -13,8 +14,8 @@ enum CardLevels {
 }
 
 class User {
-  String phone;
-  String password;
+  String? phone;
+  String? password;
 
   User({
     required this.phone,
@@ -91,11 +92,15 @@ class UserProfileViewModel with ChangeNotifier {
     hasRefferer: false,
   );
 
-  Future<void> changeUserData(UserData userData) async {
-    final url = Uri.parse('https://localhost:2021/api/userdata/change');
+  Future<int> changeUserData(UserData userData) async {
+    final url = Uri.parse('https://192.168.50.158:2021/api/userdata/change');
 
     final response = await http.post(
       url,
+      headers: {
+        // HttpHeaders has many properties like AUTHORIZATION, contentTypeHeader, acceptHeader etc. you can use them accordingly.
+        HttpHeaders.contentTypeHeader: "application/json"
+      },
       body: json.encode(
         {
           'name': 'Егор',
@@ -109,68 +114,97 @@ class UserProfileViewModel with ChangeNotifier {
         },
       ),
     );
-    final responseData = json.decode(response.body);
     // ignore: avoid_print
-    print(responseData);
+    print(response.statusCode);
+    if (response.statusCode != 200) {
+      return response.statusCode;
+    }
+    print(response.body);
     notifyListeners();
+    return response.statusCode;
   }
 
-  Future<void> getUserData(UserData userData) async {
-    final url = Uri.parse('https://localhost:2021/api/userdata/get');
+  Future<int> getUserData(UserData userData) async {
+    final url = Uri.parse('https://192.168.50.158:2021/api/userdata/get');
 
     final response = await http.post(
       url,
+      headers: {
+        // HttpHeaders has many properties like AUTHORIZATION, contentTypeHeader, acceptHeader etc. you can use them accordingly.
+        HttpHeaders.contentTypeHeader: "application/json"
+      },
       body: json.encode(
         {
           'phoneNumber': user.phone,
         },
       ),
     );
-    final responseData = json.decode(response.body);
     // ignore: avoid_print
-    print(responseData);
+    print(response.statusCode);
+    if (response.statusCode != 200) {
+      return response.statusCode;
+    }
+    print(response.body);
     notifyListeners();
+    return response.statusCode;
   }
 
   User user = User(
-    phone: '88005553535',
-    password: '1234',
+    phone: null,
+    password: null,
   );
 
-  Future<void> login() async {
-    final url = Uri.parse('https://localhost:2021/api/auth/login');
+  Future<int> login() async {
+    final url = Uri.parse('http://192.168.50.158:2021/api/auth/login');
 
     final response = await http.post(
       url,
+      headers: {
+        // HttpHeaders has many properties like AUTHORIZATION, contentTypeHeader, acceptHeader etc. you can use them accordingly.
+        HttpHeaders.contentTypeHeader: "application/json"
+      },
       body: json.encode(
         {
-          'email': user.phone,
-          'password': user.password,
+          'phoneNumber': '88005553535',
+          'password': '1234',
         },
       ),
     );
-    final responseData = json.decode(response.body);
+
     // ignore: avoid_print
-    print(responseData);
+    print(response.statusCode);
+    if (response.statusCode != 200) {
+      return response.statusCode;
+    }
+    print(response.body);
     notifyListeners();
+    return response.statusCode;
   }
 
-  Future<void> register() async {
-    final url = Uri.parse('https://localhost:2021/api/auth/register');
+  Future<int> register() async {
+    final url = Uri.parse('http://192.168.50.158:2021/api/auth/register');
 
     final response = await http.post(
       url,
+      headers: {
+        // HttpHeaders has many properties like AUTHORIZATION, contentTypeHeader, acceptHeader etc. you can use them accordingly.
+        HttpHeaders.contentTypeHeader: "application/json"
+      },
       body: json.encode(
         {
-          'email': user.phone,
+          'phoneNumber': user.phone,
           'password': user.password,
         },
       ),
     );
-    final responseData = json.decode(response.body);
     // ignore: avoid_print
-    print(responseData);
+    print(response.statusCode);
+    if (response.statusCode != 200) {
+      return response.statusCode;
+    }
+    print(response.body);
     notifyListeners();
+    return response.statusCode;
   }
 
   LoyaltyCard card = LoyaltyCard(

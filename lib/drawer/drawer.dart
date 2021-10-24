@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
+import 'package:volvo_app/auth/auth_view.dart';
+import 'package:volvo_app/user_profile/user_profile_view_model.dart';
 
 // ignore: use_key_in_widget_constructors
 class MainDrawer extends StatelessWidget {
@@ -75,7 +78,17 @@ class MainDrawer extends StatelessWidget {
           buildListTile(
             'Выход',
             () {
-              Navigator.of(context).pushReplacementNamed('/');
+              Provider.of<UserProfileViewModel>(context, listen: false)
+                  .user
+                  .phone = '';
+              Provider.of<UserProfileViewModel>(context, listen: false)
+                  .user
+                  .password = '';
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (context) => AuthView(),
+                ),
+              );
             },
           ),
           Expanded(child: SizedBox()),

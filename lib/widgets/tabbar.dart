@@ -99,7 +99,7 @@ class Tabbar extends StatelessWidget {
                   width: MediaQuery.of(context).size.width / 4,
                   height: 50,
                   child: SvgPicture.asset(
-                    'assets/icons/car_profile.svg',
+                    'assets/icons/home.svg',
                     color: currentPage == 'car_profile'
                         ? VolvoColors.firstColor
                         : VolvoColors.thirdColor,

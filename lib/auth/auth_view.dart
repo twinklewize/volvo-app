@@ -1,9 +1,11 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, must_be_immutable
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 import 'package:volvo_app/home/home_view.dart';
 import 'package:volvo_app/main.dart';
+import 'package:volvo_app/user_profile/user_profile_view_model.dart';
 
 class AuthView extends StatelessWidget {
   AuthView({Key? key}) : super(key: key);
@@ -79,8 +81,22 @@ class AuthView extends StatelessWidget {
 
           // кнопка
           GestureDetector(
-            onTap: () {
-              //
+            onTap: () async {
+              Provider.of<UserProfileViewModel>(context, listen: false)
+                  .user
+                  .phone = controllerPhone.text;
+              Provider.of<UserProfileViewModel>(context, listen: false)
+                  .user
+                  .password = controllerPassword.text;
+              await Provider.of<UserProfileViewModel>(context, listen: false)
+                          .register() ==
+                      200
+                  ? Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (context) => HomeView(),
+                      ),
+                    )
+                  : 'Ошибка';
             },
             child: Container(
               height: 50,
@@ -102,13 +118,22 @@ class AuthView extends StatelessWidget {
 
           // кнопка
           GestureDetector(
-            onTap: () {
-              //
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(
-                  builder: (context) => HomeView(),
-                ),
-              );
+            onTap: () async {
+              Provider.of<UserProfileViewModel>(context, listen: false)
+                  .user
+                  .phone = controllerPhone.text;
+              Provider.of<UserProfileViewModel>(context, listen: false)
+                  .user
+                  .password = controllerPassword.text;
+              await Provider.of<UserProfileViewModel>(context, listen: false)
+                          .login() ==
+                      200
+                  ? Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (context) => HomeView(),
+                      ),
+                    )
+                  : 'Ошибка';
             },
             child: Container(
               height: 50,
@@ -127,7 +152,6 @@ class AuthView extends StatelessWidget {
               ),
             ),
           ),
-
           Spacer(),
         ],
       ),
