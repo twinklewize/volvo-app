@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:volvo_app/drawer/drawer.dart';
+import 'package:volvo_app/user_profile/user_profile_view_model.dart';
 import 'package:volvo_app/widgets/tabbar.dart';
 import 'home_view_model.dart';
 import '../chat/chat_view.dart';
