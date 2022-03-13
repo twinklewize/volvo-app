@@ -68,7 +68,7 @@ class ColorDots extends StatelessWidget {
 }
 
 class ColorDot extends StatelessWidget {
-  bool isSelected;
+  final bool isSelected;
   final int color;
   final Function() press;
 

@@ -114,6 +114,7 @@ class CarProfileView extends StatelessWidget {
             dateTime: DateTime(2021, 22, 10),
             address: 'Москва, Холодильный пер., 6',
           ),
+          const SizedBox(height: 18),
         ],
       ),
     );

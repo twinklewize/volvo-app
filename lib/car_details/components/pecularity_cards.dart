@@ -6,15 +6,13 @@ import 'constants.dart';
 
 // ignore: use_key_in_widget_constructors
 class Pecularities extends StatelessWidget {
-  var pecularityData;
-
   @override
   Widget build(BuildContext context) {
     final carDetailsData = Provider.of<CarDetailsViewModel>(
       context,
       listen: false,
     );
-    pecularityData = carDetailsData.pecularities;
+    var pecularityData = carDetailsData.pecularities;
     return Column(
       children: [
         SingleChildScrollView(

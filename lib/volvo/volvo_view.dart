@@ -9,10 +9,9 @@ import 'package:volvo_app/widgets/appbar.dart';
 class VolvoView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    //Size size = MediaQuery.of(context).size;
     //TODO MediaQuery
-    //TODO model
-    //TODO filters and search
+    //model
+    //filters and search
     //посмотреть что не так с шрифтами
     return SingleChildScrollView(
       child: Column(

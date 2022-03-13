@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:volvo_app/main.dart';
 
 class WhiteSlimContainer extends StatelessWidget {
   // ignore: use_key_in_widget_constructors

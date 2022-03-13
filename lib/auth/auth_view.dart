@@ -119,21 +119,28 @@ class AuthView extends StatelessWidget {
           // кнопка
           GestureDetector(
             onTap: () async {
-              Provider.of<UserProfileViewModel>(context, listen: false)
-                  .user
-                  .phone = controllerPhone.text;
-              Provider.of<UserProfileViewModel>(context, listen: false)
-                  .user
-                  .password = controllerPassword.text;
-              await Provider.of<UserProfileViewModel>(context, listen: false)
-                          .login() ==
-                      200
-                  ? Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(
-                        builder: (context) => HomeView(),
-                      ),
-                    )
-                  : 'Ошибка';
+              // TO DO: убрать заглушку для демо - версии
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (context) => HomeView(),
+                ),
+              );
+
+              // Provider.of<UserProfileViewModel>(context, listen: false)
+              //     .user
+              //     .phone = controllerPhone.text;
+              // Provider.of<UserProfileViewModel>(context, listen: false)
+              //     .user
+              //     .password = controllerPassword.text;
+              // await Provider.of<UserProfileViewModel>(context, listen: false)
+              //             .login() ==
+              //         200
+              //     ? Navigator.of(context).pushReplacement(
+              //         MaterialPageRoute(
+              //           builder: (context) => HomeView(),
+              //         ),
+              //       )
+              //     : 'Ошибка';
             },
             child: Container(
               height: 50,

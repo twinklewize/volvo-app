@@ -159,10 +159,7 @@ class UserProfileViewModel with ChangeNotifier {
 
     final response = await http.post(
       url,
-      headers: {
-        // HttpHeaders has many properties like AUTHORIZATION, contentTypeHeader, acceptHeader etc. you can use them accordingly.
-        HttpHeaders.contentTypeHeader: "application/json"
-      },
+      headers: {HttpHeaders.contentTypeHeader: "application/json"},
       body: json.encode(
         {
           'phoneNumber': '88005553535',
@@ -186,10 +183,7 @@ class UserProfileViewModel with ChangeNotifier {
 
     final response = await http.post(
       url,
-      headers: {
-        // HttpHeaders has many properties like AUTHORIZATION, contentTypeHeader, acceptHeader etc. you can use them accordingly.
-        HttpHeaders.contentTypeHeader: "application/json"
-      },
+      headers: {HttpHeaders.contentTypeHeader: "application/json"},
       body: json.encode(
         {
           'phoneNumber': user.phone,

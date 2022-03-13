@@ -6,7 +6,7 @@ import 'constants.dart';
 
 // ignore: use_key_in_widget_constructors
 class PreOrderBtnAndFlag extends StatelessWidget {
-  String carModel;
+  final String carModel;
   PreOrderBtnAndFlag({required this.carModel});
   @override
   Widget build(BuildContext context) {
@@ -64,7 +64,6 @@ class PreOrderBtnAndFlag extends StatelessWidget {
   }
 
   Future<dynamic> TestDriveModalBottomSheet(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return showModalBottomSheet(
       isScrollControlled: true,
       context: context,

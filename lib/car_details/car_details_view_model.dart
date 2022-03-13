@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:volvo_app/car_details/components/pecularity_cards.dart';
 
 class CarDetailsViewModel extends ChangeNotifier {
   int _colorIndex = 5;

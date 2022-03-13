@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:volvo_app/car_details/car_details_view.dart';
 import 'package:volvo_app/feedback_form/feedback_form_view.dart';
 import 'package:volvo_app/notifications/notification_service.dart';
 

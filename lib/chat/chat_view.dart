@@ -13,7 +13,9 @@ class ChatView extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 18.0),
-            child: CarDetailsAppbar(),
+            child: CarDetailsAppbar(
+              haveBackArrow: false,
+            ),
           ),
           Spacer(),
           MessageBubble(
